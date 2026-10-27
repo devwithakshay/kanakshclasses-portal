@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Kanaksh Classes Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="assets/logo.jpg"><link rel="stylesheet" href="assets/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script></head><body><div class="app">
+<aside><div class="lg"><img src="assets/logo.jpg" alt="Kanaksh Classes"></div>
+<a class="on" data-v="dash">▦ Dashboard</a><a data-v="add">＋ New Admission</a><a data-v="stu">☺ Students</a><a data-v="fee">₹ Fees</a><a data-v="soon">▣ Classes</a><a data-v="soon">✓ Attendance</a><a data-v="soon">✎ Exams</a><a data-v="soon">☎ Enquiries</a><a data-v="soon">⚙ Settings</a><div class="ig">@kanakshclasses</div></aside>
+<main>
+<section id="dash"><div class="hero"><div><h1>Welcome back 👋</h1><p>Bright Minds, Brighter Futures!</p></div><button class="cta" onclick="go('add')">＋ New Admission</button></div>
+<div class="grid stats" id="stats"></div>
+<div class="grid two"><div class="card"><h2>Fee collected vs pending</h2><div class="chart"><canvas id="c1"></canvas></div></div><div class="card"><h2>Recent admissions</h2><div class="wrap"><table id="rec"></table></div></div></div></section>
+
+<section id="add" hidden><div class="hero" style="margin-bottom:18px"><div><h1>New Admission</h1><p>Fill the basic details · Student ID is generated automatically</p></div></div>
+<form class="card" id="form" novalidate><div class="f">
+<div class="sec">Student details</div>
+<div><label>Student ID</label><input id="sid" readonly style="font-weight:700;color:var(--brand)"></div>
+<div class="full" style="grid-column:span 2"><label>Student full name *</label><input name="name" placeholder="e.g. Aarav Sharma"><div class="err"></div></div>
+<div><label>Date of birth *</label><input type="date" name="dob"><div class="err"></div></div>
+<div><label>Gender *</label><select name="gender"><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select><div class="err"></div></div>
+<div><label>School name</label><input name="school" placeholder="Current school"></div>
+<div><label>Class *</label><select name="cls"><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select><div class="err"></div></div>
+<div><label>Board *</label><select name="board"><option value="">Select</option><option>CBSE</option><option>ICSE</option></select><div class="err"></div></div>
+<div><label>Admission date</label><input type="date" name="adm"></div>
+<div class="full"><label>Subjects</label><div class="chips" id="subs"></div></div>
+<div class="sec">Parent / guardian</div>
+<div><label>Parent / guardian name *</label><input name="guardian"><div class="err"></div></div>
+<div><label>Relation</label><select name="rel"><option>Father</option><option>Mother</option><option>Guardian</option></select></div>
+<div><label>Email</label><input type="email" name="email" placeholder="optional"><div class="err"></div></div>
+<div><label>Mobile number *</label><input name="mobile" inputmode="numeric" maxlength="10" placeholder="10-digit number"><div class="err"></div></div>
+<div><label>Alternate mobile number</label><input name="alt" inputmode="numeric" maxlength="10" placeholder="optional"><div class="err"></div></div>
+<div><label>Monthly fee (₹)</label><input type="number" name="fee" placeholder="e.g. 1500"></div>
+<div class="full"><label>Address</label><textarea name="addr" rows="2"></textarea></div>
+<div class="full"><label>Notes</label><textarea name="notes" rows="2" placeholder="Any remarks"></textarea></div>
+</div><div style="display:flex;gap:10px;margin-top:20px"><button class="btn" type="submit">Submit admission</button><button class="btn o" type="reset" onclick="setTimeout(init,0)">Clear</button></div></form></section>
+
+<section id="stu" hidden><div class="hero" style="margin-bottom:18px"><div><h1>Students</h1><p>Classes 1–8 · CBSE &amp; ICSE · tap a row to open the admission form</p></div><button class="cta" onclick="go('add')">＋ New Admission</button></div>
+<div class="bar"><input class="s" id="q" placeholder="Search name, ID or mobile…" style="max-width:320px"><select id="b" class="s" style="max-width:150px"><option value="">All boards</option><option>CBSE</option><option>ICSE</option></select></div>
+<div class="card wrap"><table id="st"></table></div></section>
+<section id="fee" hidden><div class="hero" style="margin-bottom:18px"><div><h1>Fee management</h1><p>Due &amp; paid amounts · status · WhatsApp reminders to parent mobile</p></div></div>
+<div class="grid stats" id="feeStats"></div>
+<div class="bar"><input class="s" id="fq" placeholder="Search student or ID…" style="max-width:280px"><select id="fs" class="s" style="max-width:160px"><option value="">All statuses</option><option>Paid</option><option>Partial</option><option>Pending</option><option>Overdue</option><option>New</option></select><button class="btn o" type="button" id="remAll">WhatsApp all with due</button></div>
+<div class="card wrap"><table id="fe"></table></div></section>
+<section id="soon" hidden><div class="hero"><div><h1>Coming next</h1><p>This module isn't in the preview yet.</p></div></div></section>
+</main></div><div id="host"></div>
+
+<script src="config.js"></script><script src="assets/app.js"></script></body></html>
